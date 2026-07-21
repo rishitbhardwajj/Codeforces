@@ -1,26 +1,34 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool isPrime(int n) {
-    for (int i = 2; i * i <= n; i++) {
+bool isPrime(int n)
+{
+    for (int i = 2; i * i <= n; i++)
+    {
         if (n % i == 0)
             return false;
     }
     return true;
 }
 
-int main() {
+int main()
+{
     int n, m;
     cin >> n >> m;
 
-    for (int i = n + 1; i <= 50; i++) {
-        if (isPrime(i)) {
-            if (i == m)
+    int nextPrime = n + 1;
+
+    while (true)
+    {
+        if (isPrime(nextPrime))
+        {
+            if (nextPrime == m)
                 cout << "YES";
             else
                 cout << "NO";
             break;
         }
+        nextPrime++;
     }
 
     return 0;
